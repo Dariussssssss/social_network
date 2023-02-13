@@ -1,41 +1,53 @@
-import React from 'react';
+import React, {FC} from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from 'react-router-dom';
+
+type DialogsItemType = {
+    name: string
+    id: number
+}
+
+type MessageType = {
+    message: string
+}
+
+const DialogItem: FC<DialogsItemType> = (props) => {
+
+    let path = '/dialogs/' + props.id;
+
+    return (
+        <div className={s.dialog}>
+            <NavLink to={path}>{props.name}</NavLink>
+
+        </div>
+    )
+}
+
+const Message: FC<MessageType> = (props) => {
+    return (
+        <div className={s.message}>
+            {props.message}
+        </div>
+    )
+}
 
 export const Dialogs = () => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/1'}>User1</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/2'}>User2</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/3'}>User3</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/4'}>User4</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/5'}>User5</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/6'}>User6</NavLink>
-                </div>
+                <DialogItem name={'User1'} id={1}/>
+                <DialogItem name={'User2'} id={2}/>
+                <DialogItem name={'User3'} id={3}/>
+                <DialogItem name={'User4'} id={4}/>
+                <DialogItem name={'User5'} id={5}/>
+                <DialogItem name={'User6'} id={6}/>
             </div>
 
             <div className={s.messages}>
-                <div className={s.message}>
-                    Lorem ipsum dolor sit amet.
-                </div>
-                <div className={s.message}>
-                    Lorem ipsum dolor.
-                </div>
-                <div className={s.message}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, veritatis.
-                </div>
+                <Message message={'Lorem ipsum dolor sit amet.'}/>
+                <Message message={'Lorem ipsum dolor'}/>
+                <Message
+                    message={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, veritatis.'}/>
             </div>
         </div>
     )

@@ -13,9 +13,9 @@ export const MyPosts = () => {
                     <button>Send post</button>
                 </div>
                 <div className={s.posts}>
-                    <Post message={'loremfkfkfk'} likesCount={3}/>
-                    <Post message={'dfjhfdjf'} likesCount={0}/>
-                    <Post message={'dfgjf'} likesCount={2}/>
+                    <Post id={1} message={'loremfkfkfk'} likesCount={3}/>
+                    <Post id={2} message={'dfjhfdjf'} likesCount={0}/>
+                    <Post id={3} message={'dfgjf'} likesCount={2}/>
                 </div>
             </div>
         </section>
