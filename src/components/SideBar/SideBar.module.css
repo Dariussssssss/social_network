@@ -1,0 +1,8 @@
+.nav__link {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.nav__link:focus {
+    color: aquamarine;
+}
